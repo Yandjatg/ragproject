@@ -1,5 +1,6 @@
 from django.conf.urls import include
-from django.urls import path
+from django.conf.urls import url
+#from django.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -17,9 +18,9 @@ for route in routes:
                     basename=route['basename'])
 
 urlpatterns = [
-    path("", include("common.urls"), name="common"),
-    path("admin/", admin.site.urls, name="admin"),
-    path("jsreverse/", django_js_reverse.views.urls_js, name="js_reverse"),
+    url("", include("common.urls"), name="common"),
+    url("admin/", admin.site.urls, name="admin"),
+    url("jsreverse/", django_js_reverse.views.urls_js, name="js_reverse"),
 
-    path("api/", include(router.urls), name="api"),
+    url("api/", include(router.urls), name="api"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
