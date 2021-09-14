@@ -10,14 +10,14 @@ if __name__ == "__main__":
     settings_module = config("DJANGO_SETTINGS_MODULE", default=None)
 
     if sys.argv[1] == "test":
-        if settings_module:
+        if settings_module is None:
             print(
                 "Ignoring config('DJANGO_SETTINGS_MODULE') because it's test. "
                 "Using 'rag.settings.test'"
             )
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rag.settings.test")
     else:
-        if settings_module is None:
+        if settings_module:
             print(
                 "Error: no DJANGO_SETTINGS_MODULE found. Will NOT start devserver. "
                 "Remember to create .env file at project root. "
