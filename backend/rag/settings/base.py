@@ -132,7 +132,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 MEDIA_URL = '/mediafiles/'
 
-STATIC_ROOT = '/home/lt2s/Desktop/ragproject/'
+
 # Webpack
 WEBPACK_LOADER = {
     "DEFAULT": {
